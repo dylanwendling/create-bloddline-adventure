@@ -1,0 +1,178 @@
+
+public class Enemy { // class Enemy
+    // member variables
+    private String name;
+    private int health;
+    private int strength;
+
+    public Enemy() { // default constructor
+        this.name = "";
+        this.health = 0;
+        this.strength = 0;
+    }
+
+    public Enemy(String name, int health, int strength) { // parametrized constructor
+        this.name = name;
+        this.health = health;
+        this.strength = strength;
+    }
+
+    // getters for all member variables
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    // setters for all member variables
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public void attack() { // method attack() that print damage based on strength
+        System.out.println("Total damage -> " + getStrength());
+    }
+
+    public void jump() { // jump method that prints jump power
+        System.out.println("Total jump -> " + getStrength() * 1.5);
+    }
+
+    public void writeOutput() { // method to print values of all variables of the class
+        System.out.println("\nName -> " + getName() +
+                "\nHealth -> " + getHealth() +
+                "\nStrength -> " + getStrength());
+    }
+}
+
+class Fighter extends Enemy {
+    // member variables
+    private String weaponType;
+    private int weaponDamage;
+    private int armorPoint;
+
+    public Fighter() { // default constructor
+        this.weaponType = "";
+        this.weaponDamage = 0;
+        this.armorPoint = 0;
+    }
+
+    public Fighter(String weaponType, int weaponDamage, int armorPoint) { // parametrized constructor
+        this.weaponType = weaponType;
+        this.weaponDamage = weaponDamage;
+        this.armorPoint = armorPoint;
+    }
+
+    // getters for all member variables
+
+    public String getWeaponType() {
+        return weaponType;
+    }
+
+    public int getWeaponDamage() {
+        return weaponDamage;
+    }
+
+    public int getArmorPoint() {
+        return armorPoint;
+    }
+
+    // setters for all member variables
+
+    public void setWeaponType(String weaponType) {
+        this.weaponType = weaponType;
+    }
+
+    public void setWeaponDamage(int weaponDamage) {
+        this.weaponDamage = weaponDamage;
+    }
+
+    public void setArmorPoint(int armorPoint) {
+        this.armorPoint = armorPoint;
+    }
+
+    @Override
+    public void attack() { // print total damage based on weaponDamage and strength
+        System.out.println("Total damage -> " + (getWeaponDamage() * getStrength() * 0.5));
+    }
+
+    @Override
+    public void writeOutput() { // method to print values of all variables of the class
+        System.out.println("\nWeapon Type -> " + getWeaponType() +
+                "\nWeapon Damage -> " + getWeaponDamage() +
+                "\nArmor Point -> " + getArmorPoint() );
+    }
+}
+class Ninja extends Fighter {
+    // member variables
+    private int chakraPoint;
+    private String bloodlineType;
+    private String village;
+
+    public Ninja() { // default constructor
+        this.chakraPoint = 0;
+        this.bloodlineType = "";
+        this.village = "";
+    }
+
+    public Ninja(int chakraPoint, String bloodlineType, String village) { // parametrized constructor
+        this.chakraPoint = chakraPoint;
+        this.bloodlineType = bloodlineType;
+        this.village = village;
+    }
+
+    // getters for all member variables
+
+    public int getChakraPoint() {
+        return chakraPoint;
+    }
+
+    public String getBloodlineType() {
+        return bloodlineType;
+    }
+
+    public String getVillage() {
+        return village;
+    }
+
+    // setters for all member variables
+
+    public void setChakraPoint(int chakraPoint) {
+        this.chakraPoint = chakraPoint;
+    }
+
+    public void setBloodlineType(String bloodlineType) {
+        this.bloodlineType = bloodlineType;
+    }
+
+    public void setVillage(String village) {
+        this.village = village;
+    }
+
+    @Override
+    public void writeOutput() { // method to print values of all variables of the class
+        System.out.println("\nChakra Point -> " + getChakraPoint() +
+                "\nBloodline Type -> " + getBloodlineType() +
+                "\nVillage -> " + getVillage());
+    }
+
+    public void bloodlineAttack() { // print name and bloodline type
+        System.out.println("NAME -> " + getName() +
+                "BLOODLINETYPE -> " + getBloodlineType());
+    }
+}
